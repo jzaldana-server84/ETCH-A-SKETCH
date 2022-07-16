@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 256px;
+    height: 256px; */
+}
+
+.grid .grid-item {
+    border: 1px solid black;
+    /* width: 16px; */
+    /* height: 16px; */
+}
+
+.grid .grid-item-hover {
+    background-color: blue;
+}
+
