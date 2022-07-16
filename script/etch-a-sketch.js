@@ -1,6 +1,8 @@
-// Slicer Variables
+// Variables
 const slicerContainer = document.querySelector('.slicer');
 const gridDimension = document.querySelector('.gridDimension');
+const colorPicker = document.querySelector('#colorPicker');
+const resetButton = document.querySelector('.reset-button');
 
 // Create the 16x16 grid
 
@@ -11,6 +13,7 @@ let gridElementNumber = slicerContainer.value;
 let gridSize = 480/gridElementNumber;
 let gridItems;
 var i = 0;
+let gridColor = colorPicker.value;
 
 // Set size of the grid
 
@@ -62,7 +65,7 @@ slicerContainer.addEventListener('input', () => {
     // On Hover Class Change
     for (i = 0; i < gridItems.length; i++){
         gridItems[i].addEventListener('mouseover',function() {
-            this.style.setProperty('background-color', 'blue');
+            this.style.setProperty('background-color', gridColor);
         });
     };
 
@@ -70,9 +73,26 @@ slicerContainer.addEventListener('input', () => {
 
 // On Hover Class Change
 for (i = 0; i < gridItems.length; i++){
+    
+    colorPicker.addEventListener('input', function(){
+        gridColor = colorPicker.value;
+    });
     gridItems[i].addEventListener('mouseover',function() {
-        this.style.setProperty('background-color', 'blue');
+        this.style.setProperty('background-color', gridColor);
+        
     });
 };
 
+// Color picker change
 
+colorPicker.addEventListener('input', function(){
+    gridColor = colorPicker.value;
+});
+
+// Reset Button
+
+resetButton.addEventListener('click', () => {
+    for (i = 0; i < gridItems.length; i++){
+        gridItems[i].style.setProperty('background-color',`white`);
+    }
+});

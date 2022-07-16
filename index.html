@@ -10,14 +10,24 @@
 </head>
 <body>
     <div class="header">ETCH-A-SKETCH</div>
-    <div class="controls">
-        <div class="gridSlicer">
-            <input type="range" min="3" max="50" value="25" class="slicer">
-            <div class="gridDimension"></div>
+    <div class="grid-and-control">
+        <div class="controls">
+            <div class="gridSlicer">
+                <div class="gridDimension-title">Select grid dimension: </div>
+                <input type="range" min="3" max="50" value="25" class="slicer">
+                <div class="gridDimension"></div>
+            </div>
+            <div class="color-picker">
+                <div class="color-picker-title">Select grid color: </div>
+                <input type="color" value="#0000ff" id="colorPicker">
+            </div>
+            <div class="button">
+                <button class="reset-button">Reset</button>
+            </div>
         </div>
-    </div>
 
-    <div class="grid"></div>
+        <div class="grid"></div>
+    </div>
     
 </body>
 </html>
