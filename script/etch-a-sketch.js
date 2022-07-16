@@ -1,8 +1,13 @@
+// Slicer Variables
+const slicerContainer = document.querySelector('.slicer');
+const gridDimension = document.querySelector('.gridDimension');
+
 // Create the 16x16 grid
 
 // Grid Variables
 const gridContainer = document.querySelector('.grid');
-let gridElementNumber = 50;
+let gridElementNumber = slicerContainer.value;
+//let gridElementNumber = 23;
 let gridSize = 480/gridElementNumber;
 let gridItems;
 var i = 0;
@@ -12,6 +17,7 @@ var i = 0;
 gridContainer.style.setProperty('width', `480px`);
 gridContainer.style.setProperty('height', `480px`);
 
+gridDimension.innerText = `Grid size: ${gridElementNumber} x ${gridElementNumber}`;
 
 // Create grid function
 function makeRows(rows, cols) {
@@ -36,6 +42,31 @@ function makeRows(rows, cols) {
 
 // Grid Creation
 makeRows(gridElementNumber, gridElementNumber);
+
+
+// EVENTS!!
+// Input Range Event
+slicerContainer.addEventListener('input', () => {
+    
+    while (gridContainer.hasChildNodes()) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    };
+
+    gridElementNumber = slicerContainer.value;
+    gridSize = 480/gridElementNumber;
+
+    makeRows(gridElementNumber, gridElementNumber);
+
+    gridDimension.innerText = `Grid size: ${gridElementNumber} x ${gridElementNumber}`;
+
+    // On Hover Class Change
+    for (i = 0; i < gridItems.length; i++){
+        gridItems[i].addEventListener('mouseover',function() {
+            this.style.setProperty('background-color', 'blue');
+        });
+    };
+
+});
 
 // On Hover Class Change
 for (i = 0; i < gridItems.length; i++){
